@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 
 const SearchBar = () => {
-  const [input, setInput] = useState('')
+  const [searchTerm, setSearchTerm] = useState('')
   const navigate = useNavigate();
 
   const handleSearch=(e)=>{
     e.preventDefault();
-    if(input){
-    navigator.navigate(`/search/${input}`);
-    setInput('')
+    if(searchTerm){
+    navigate(`/search/${searchTerm}`);
+    setSearchTerm('')
     }
   }
   
@@ -30,8 +30,8 @@ const SearchBar = () => {
     <input type="text"
     className="search-bar"
     placeholder="Search..."
-    value={input}
-    onChange={(e) => setInput(e.target.value)}
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
     />
     <IconButton>
        <Search type="submit" sx={{color:'red'}}/>
